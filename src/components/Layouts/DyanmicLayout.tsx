@@ -9,10 +9,10 @@ export default function DynamicLayout({ border, children }: children) {
     <div
       className={`max-w-screen ${
         border ? `border-b border-[#e1d5d5]` : ``
-      } flex overflow-hidden`}
+      } flex`}
     >
       <div className="w-full px-4 sm:px-0 flex justify-center">
-        <div className='w-full sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] 2xl:w-[1436px] overflow-hidden transition-all duration-500'>
+        <div className='w-full sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] 2xl:w-[1436px] transition-all duration-500'>
           {children}
         </div>
       </div>

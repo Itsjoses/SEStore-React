@@ -3,7 +3,7 @@ import React from "react";
 export default function ProductCards() {
   return (
     <div className="flex flex-col gap-2 ">
-      <div className="h-[400px] w-full">
+      <div className="h-[350px] w-full">
         <img
           className="h-full w-full object-cover"
           src="https://storage.googleapis.com/hijup-production-sg-core/system/product_image/image/741595/medium_BUTTONSCARVES_TAPIS_SATIN_JACQUARD_IN_BRILLIANT_WHITE_1.JPG"

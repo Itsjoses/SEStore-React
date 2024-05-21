@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import Home from './pages/Home'
+import Product from './pages/Product'
 
 const router = createBrowserRouter([{
   path: "/",
   element: <Home/>
 },{
-  path: "/Home",
-  element: <Home/>
+  path: "/product",
+  element: <Product/>
 }])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

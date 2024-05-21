@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      {/* <Carousel />
+      <Carousel />
       <DynamicLayout border={false}>
         <ProductDetail title="Product"/>
       </DynamicLayout>
@@ -28,7 +28,7 @@ export default function Home() {
       </DynamicLayout>
       <StoreAddress/>
 
-      <Footer/> */}
+      <Footer/>
     </div>
   );
 }
