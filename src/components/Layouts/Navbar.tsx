@@ -5,55 +5,61 @@ import { CgProfile } from "react-icons/cg";
 
 import { GiTireIronCross } from "react-icons/gi";
 import { useState } from "react";
+import Cart from "./Cart";
 
 var selected =
   "before:absolute before:border-b-2 before:w-5 before:-bottom-1 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 ";
 export default function Navbar() {
-
-  const [status,setStatus] = useState<boolean>(false)
+  const [cart, setCart] = useState<boolean>(false);
 
   return (
     <div>
       <div className="relative z-10">
         <DynamicLayout border={true}>
-          <div className="flex justify-center bg-white">
-            <div className="flex justify-between py-4 px-2 items-center w-full transition-width duration-500">
-              <div className="flex gap-4 ">
-                <div className="w-28 h-auto flex-shrink-0">
-                  <img
-                    src="/Logo.png"
-                    alt="Logo"
-                    className="w-full h-full object-contain"
+          <div className="relative">
+            {cart && (
+              <Cart />
+            )}
+
+            <div className="flex justify-center bg-white">
+              <div className="flex justify-between py-4 px-2 items-center w-full transition-width duration-500">
+                <div className="flex gap-4 ">
+                  <div className="w-28 h-auto flex-shrink-0">
+                    <img
+                      src="/Logo.png"
+                      alt="Logo"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 2xl:w-6/12 xl:w-5/12">
+                  <CiSearch className="text-xl" />
+                  <input
+                    type="search"
+                    name=""
+                    id=""
+                    placeholder="Search Product/Brands"
+                    className="w-full py-1 outline-none border-b border-b-black placeholder:text-sm"
                   />
                 </div>
-              </div>
 
-              <div className="flex items-center gap-2 2xl:w-6/12 xl:w-5/12">
-                <CiSearch className="text-xl" />
-                <input
-                  type="search"
-                  name=""
-                  id=""
-                  placeholder="Search Product/Brands"
-                  className="w-full py-1 outline-none border-b border-b-black placeholder:text-sm"
-                />
-              </div>
-
-              <div className="flex items-center gap-4">
-                <button>Theme</button>|<p>Sign In</p>|<p>Register</p>
-                <IoCart className="text-2xl" />
-                <CgProfile className="text-2xl font-light" />
+                <div className="flex items-center gap-4">
+                  <button>Theme</button>|<p>Sign In</p>|<p>Register</p>
+                  <IoCart className="text-2xl" onClick={() => setCart((prev) => !prev)}/>
+                  <CgProfile className="text-2xl font-light" />
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="flex bg-white">
-            <div className="flex items-center gap-8 ">
-              <p className="relative flex items-center flex-col p-2">Promo</p>
-              <p className="relative flex items-center flex-col p-2">Promo</p>
-              <p className="relative flex items-center flex-col p-2">Promo</p>
-              <p className="relative flex items-center flex-col p-2">Promo</p>
-              <p className="relative flex items-center flex-col p-2">Promo</p>
+            <div className="flex bg-white">
+              <div className="flex items-center gap-8 ">
+                <p className="relative flex items-center flex-col p-2">Promo</p>
+                <p className="relative flex items-center flex-col p-2">Promo</p>
+                <p className="relative flex items-center flex-col p-2">Promo</p>
+                <p className="relative flex items-center flex-col p-2">Promo</p>
+                <p className="relative flex items-center flex-col p-2">Promo</p>
+              </div>
             </div>
           </div>
 
