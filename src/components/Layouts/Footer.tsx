@@ -1,4 +1,3 @@
-import React from "react";
 import DynamicLayout from "./DyanmicLayout";
 import {
   FaFacebook,
@@ -8,15 +7,21 @@ import {
 } from "react-icons/fa";
 export default function Footer() {
   return (
-    <div className="bg-black text-white py-12">
+    <div className=" text-black">
       <DynamicLayout border={false}>
         <div className="gap-10 flex flex-col">
           <div className="w-72 h-auto flex-shrink-0">
-              <img src="/LogoFooter.png" alt="Logo" className="w-full h-full object-contain"/>
-            </div>
+            <img
+              src="/LogoFooter.png"
+              alt="Logo"
+              className="w-full h-full object-contain"
+            />
+          </div>
           <div className="flex justify-between gap-12">
             <div className="flex-1">
-              <p className="font-semibold text-xl mb-2">Categories</p>
+              <p className="font-semibold text-xl mb-2 text-primary/60">
+                Categories
+              </p>
               <div className="text-sm">
                 <p>Women</p>
                 <p>Men</p>
@@ -26,7 +31,9 @@ export default function Footer() {
               </div>
             </div>
             <div className="flex-1">
-              <p className="font-semibold text-xl mb-2">Links</p>
+              <p className="font-semibold text-xl mb-2 text-primary/60">
+                Links
+              </p>
               <div className="text-sm">
                 <p>FAQ</p>
                 <p>Pages</p>
@@ -36,7 +43,9 @@ export default function Footer() {
               </div>
             </div>
             <div className="flex-1">
-              <p className="font-semibold text-xl mb-2">About</p>
+              <p className="font-semibold text-xl mb-2 text-primary/60">
+                About
+              </p>
               <div className="text-sm">
                 <p>
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim
@@ -48,7 +57,9 @@ export default function Footer() {
               </div>
             </div>
             <div className="flex-1">
-              <p className="font-semibold text-xl mb-2">Contact</p>
+              <p className="font-semibold text-xl mb-2 text-primary/60">
+                Contact
+              </p>
               <div className="text-sm">
                 <p>
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id,
@@ -61,25 +72,28 @@ export default function Footer() {
             </div>
           </div>
 
-          <hr className="mb-6" />
+          <hr className="mb-1" />
 
           <div className="flex items-center flex-col gap-4">
             <div className="flex justify-center gap-6">
-              <div className=" border text-xl p-3 rounded-full">
+              <div className=" border text-xl p-3 rounded-full text-primary/60">
                 <FaFacebook />
               </div>
-              <div className=" border text-xl p-3 rounded-full">
+              <div className=" border text-xl p-3 rounded-full text-primary/60">
                 <FaTwitter />
               </div>
-              <div className=" border text-xl p-3 rounded-full">
+              <div className=" border text-xl p-3 rounded-full text-primary/60">
                 <FaInstagramSquare />
               </div>
-              <div className=" border text-xl p-3 rounded-full">
+              <div className=" border text-xl p-3 rounded-full text-primary/60">
                 <FaYoutube />
               </div>
             </div>
             <div className="flex flex-col items-center gap-2">
-              <p>Made with ❤ by @itssejo.s</p>
+              <p>
+                Made with <span className="text-primary/60">❤</span> by
+                @itssejo.s
+              </p>
               <p>Copyright © 2024 All Rights Reserved</p>
             </div>
           </div>

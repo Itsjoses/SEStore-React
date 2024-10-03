@@ -1,11 +1,6 @@
-import React from "react";
-
-
-export default function ProductCards({data}:{data:any | undefined}) {
-  console.log(data);
-  
+export default function ProductCards({ data }: { data: any | undefined }) {
   return (
-    <div className="flex flex-col gap-2 ">
+    <div className="flex flex-col gap-2">
       <div className="h-[350px] w-full">
         <img
           className="h-full w-full object-cover"
@@ -16,7 +11,9 @@ export default function ProductCards({data}:{data:any | undefined}) {
       <div className="w-full">
         <div className="font-bold">{data.title}</div>
         <div className="flex gap-4">
-          <p className="text-sm line-through font-semibold">${data.price+25}</p>
+          <p className="text-sm line-through font-semibold">
+            ${data.price + 25}
+          </p>
           <p className="text-sm font-semibold">${data.price}</p>
         </div>
       </div>

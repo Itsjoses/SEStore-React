@@ -1,64 +1,89 @@
 import DynamicLayout from "./DyanmicLayout";
 import { IoCart } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
-import { CgProfile } from "react-icons/cg";
-
-import { GiTireIronCross } from "react-icons/gi";
-import { useState } from "react";
+import { BsPersonCircle } from "react-icons/bs";
+import { useEffect, useState } from "react";
 import Cart from "./Cart";
+import { apiGetSubCategory } from "../../api/sub_product";
+import { Link } from "react-router-dom";
 
-var selected =
-  "before:absolute before:border-b-2 before:w-5 before:-bottom-1 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 ";
+interface categoryDTO {
+  id: number;
+  category: string;
+}
+
 export default function Navbar() {
   const [cart, setCart] = useState<boolean>(false);
+  const [subCategory, setSubCategory] = useState<categoryDTO[]>([]);
 
+  useEffect(() => {
+    const responseData = async () => {
+      const responseSubCategoryData = await apiGetSubCategory();
+      const categoryData: categoryDTO[] = responseSubCategoryData.data.map(
+        (data: any) => ({
+          id: data.id,
+          category: data.attributes.title,
+        })
+      );
+      setSubCategory(categoryData);
+    };
+    responseData();
+  }, []);
   return (
     <div>
       <div className="relative z-10">
         <DynamicLayout border={true}>
           <div className="relative">
-            {cart && (
-              <Cart />
-            )}
+            {cart && <Cart />}
 
             <div className="flex justify-center bg-white">
               <div className="flex justify-between py-4 px-2 items-center w-full transition-width duration-500">
                 <div className="flex gap-4 ">
-                  <div className="w-28 h-auto flex-shrink-0">
-                    <img
-                      src="/Logo.png"
-                      alt="Logo"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
+                  <Link to="/">
+                    <div className="h-auto flex-shrink-0 items-center flex">
+                      <p className="font-CustomFont text-4xl">SEStore</p>
+                    </div>
+                  </Link>
                 </div>
 
                 <div className="flex items-center gap-2 2xl:w-6/12 xl:w-5/12">
-                  <CiSearch className="text-xl" />
+                  <CiSearch className="text-xl text-primary" />
                   <input
                     type="search"
                     name=""
                     id=""
                     placeholder="Search Product/Brands"
-                    className="w-full py-1 outline-none border-b border-b-black placeholder:text-sm"
+                    className="w-full py-1 outline-none border-b border-b-primary placeholder:text-sm placeholder:text-primary/60"
                   />
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <button>Theme</button>|<p>Sign In</p>|<p>Register</p>
-                  <IoCart className="text-2xl" onClick={() => setCart((prev) => !prev)}/>
-                  <CgProfile className="text-2xl font-light" />
+                  <div className="flex gap-4 items-center">
+                    <button className="hover:text-primary/80">Log in</button>
+                    <span>or</span>
+                    <button className="bg-primary text-white p-2 rounded-md">
+                      Register
+                    </button>
+                  </div>
+                  <IoCart
+                    className="text-3xl hover:text-primary/80 cursor-pointer"
+                    onClick={() => setCart((prev) => !prev)}
+                  />
+                  <BsPersonCircle className="text-3xl font-black text-primary/80" />
                 </div>
               </div>
             </div>
 
             <div className="flex bg-white">
               <div className="flex items-center gap-8 ">
-                <p className="relative flex items-center flex-col p-2">Promo</p>
-                <p className="relative flex items-center flex-col p-2">Promo</p>
-                <p className="relative flex items-center flex-col p-2">Promo</p>
-                <p className="relative flex items-center flex-col p-2">Promo</p>
-                <p className="relative flex items-center flex-col p-2">Promo</p>
+                <p className="relative flex items-center flex-col p-2 text-primary/80">
+                  <Link to={"/products"}>All Product</Link>
+                </p>
+                {subCategory.map((data) => (
+                  <p className="relative flex items-center flex-col p-2">
+                    <Link to={"/products"}>{data.category}</Link>
+                  </p>
+                ))}
               </div>
             </div>
           </div>

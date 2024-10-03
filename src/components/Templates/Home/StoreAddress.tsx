@@ -7,12 +7,12 @@ import "leaflet/dist/leaflet.css";
 
 export default function StoreAddress() {
   return (
-    <div className="overflow-hidden w-full h-full flex md:flex-row flex-col bg-[#FAFAFA] mt-12">
+    <div className="overflow-hidden w-full h-full flex md:flex-row flex-col bg-secondary mt-12">
     <div className="md:w-6/12 w-full h-full justify-center py-24 ">
       <div className=" flex justify-center">
 
       <div className="flex flex-col gap-12 lg:w-2/5 md:w-3/5 w-4/5">
-        <p className="lg:text-4xl md:text-3xl text-2xl font-Merienda font-bold">
+        <p className="lg:text-3xl md:text-2xl text-xl font-Merienda font-bold text-primary/60">
           VISIT SESTORE TODAY
         </p>
         <p className="lg:text-lg text-base text-custom-orange">OPEN 7 DAYS A WEEK</p>
